@@ -15,7 +15,7 @@
 			Log::info("NOMBRE: ".$nombre);
 
 			$empleado = new Empleados;
-			$empleado->Nombre = $nombre;
+			$empleado->Nombre=$nombre;
 			$empleado->AppPaterno = $AppPaterno;
 			$empleado->AppMaterno = $AppMaterno;
 			$empleado->FechNacimiento = $FechNacimiento;
