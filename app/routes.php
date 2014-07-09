@@ -23,5 +23,3 @@ Route::post('postUsuarios', 'UsuariosController@guardaUsuarios');
 Route::get('logout', 'UsuariosController@logout');
 
 Route::get('dashboard','HomeController@showDashboard');
-
-Route::get('salir','UsuariosController@loginUsuario');
