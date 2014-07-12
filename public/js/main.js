@@ -1,5 +1,7 @@
 $(document).ready( function (){
 	
+	//$("#fecNac").datepicker();
+	
 	$(document).foundation();
 
 	$("#loginPOST").click(function(){
@@ -7,6 +9,7 @@ $(document).ready( function (){
 		return false;
 	});
 
+	
 
 });
 

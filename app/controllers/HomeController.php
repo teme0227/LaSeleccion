@@ -20,8 +20,26 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function showIndex(){
+		return View::make('login');
+	}
+
+	public function showRegister(){
+		return View::make('register');
+	}
 
 	public function showDashboard(){
 		return View::make('dashboard.index');
+	}
+
+	public function showFormEmpleados(){
+
+		$puestos = Puestos::all();
+
+		$negocios = Negocios::all();
+
+		Log::info("TOTAL: ".count($negocios));
+
+		return View::make('empleados.form')->with('combo', $puestos)->with('negocios', $negocios);
 	}
 }

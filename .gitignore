@@ -6,13 +6,3 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
-
-vendor/autoload.php
-
-vendor/composer/autoload_classmap.php
-
-vendor/composer/autoload_files.php
-
-vendor/composer/autoload_real.php
-
-vendor/composer/installed.json

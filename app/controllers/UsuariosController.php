@@ -1,21 +1,17 @@
 <?php
 	class UsuariosController extends BaseController{
 	
-		public function loginUsuario (){
-
-			return View::make('loginUsuarios.login');
-
-		}
+		
 
 		public function accesaLogin(){
 
 			$user = Input::get('user');
 			$pass = Input::get('pass');
 
-			$data = [
-				'usuario' => $user,
-				'password'=> $pass
-			];
+			$data = [ 
+						'usuario' => $user,
+						'password'=> $pass
+					];
 
 			if (Auth::attempt($data)){
 				$user_res = Auth::user();
@@ -28,11 +24,6 @@
 
 		}
 
-		public function formUsers (){
-
-			return View::make('loginUsuarios.formUsers');
-
-		}
 
 		public function guardaUsuarios(){
 

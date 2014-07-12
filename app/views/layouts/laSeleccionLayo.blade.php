@@ -5,18 +5,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	{{ HTML::style('css/foundation.css') }}
  	{{ HTML::style('css/normalize.css')}} 
+  {{ HTML::style('css/jquery-ui.css')}}
+
 
 
  	<script src="{{ URL::asset('js/vendor/modernizr.js') }}"></script>
 	<script src="{{ URL::asset('js/vendor/jquery.js') }}"></script>
-	<script src="{{ URL::asset('js/vendor/fastclick.js') }}"></script>
-		
+	<script src="{{ URL::asset('js/vendor/fastclick.js') }}"></script>	
 	<script src="{{ URL::asset('js/foundation.min.js') }}"></script>
-  	
   	<script src="{{ URL::asset('js/jquery.blockUI.js') }}"></script>
+    <script src="{{ URL::asset('js/jquery-ui.js') }}"></script>
   	<script src="{{ URL::asset('js/utils.js') }}"></script>
   	<script src="{{ URL::asset('js/sesion.js') }}"></script>
   	<script src="{{ URL::asset('js/main.js') }}"></script>
+
 </head>
 
 
@@ -36,7 +38,7 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Adminsitración</label></li>
-        <li><a href="#">Usuarios</a></li>
+        <li><a href="userAdmin">Usuarios</a></li>
         <li><a href="#">Negocios</a></li>
         <li><a href="#">Productos</a></li>
       </ul>
@@ -48,12 +50,13 @@
     </aside>
 
 
-    <section class="main-section" style="height: 600px;">
-      <h1>
-      	Welcome<br>
-      	<p></p>
-      </h1>
+    <section class="main-section" align="center" style="height: 600px;">
+      
+    @yield('contentIndex')
+    
     </section>
+
+  
 
   <a class="exit-off-canvas"></a>
 
@@ -64,4 +67,6 @@
 
 </body>
 
+
 </html>
+@yield('js')

@@ -11,15 +11,14 @@
 |
 */
 
-// Rutas para el login
-Route::get('/', 'UsuariosController@loginUsuario');
+Route::get('/','HomeController@showIndex');
 Route::post('loginUsuario', 'UsuariosController@accesaLogin');
 
-// Rutas para generar un nuevo usuario
-Route::get('register', 'UsuariosController@formUsers');
+Route::get('/register','HomeController@showRegister');
 Route::post('postUsuarios', 'UsuariosController@guardaUsuarios');
 
-// Cerrar sesión
 Route::get('logout', 'UsuariosController@logout');
 
 Route::get('dashboard','HomeController@showDashboard');
+
+Route::get('userAdmin', 'HomeController@showFormEmpleados');
