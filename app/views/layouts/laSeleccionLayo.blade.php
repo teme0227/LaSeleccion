@@ -6,7 +6,7 @@
 	{{ HTML::style('css/foundation.css') }}
  	{{ HTML::style('css/normalize.css')}} 
   {{ HTML::style('css/jquery-ui.css')}}
-
+  {{ HTML::style('css/foundation-icons.css')}}
 
 
  	<script src="{{ URL::asset('js/vendor/modernizr.js') }}"></script>
@@ -28,6 +28,10 @@
     <nav class="tab-bar">
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
+
+       <section class="right-small">
+       <a href="logout"><i class="step fi-power size-36"></i></a>
       </section>
 
       <section class="middle tab-bar-section">
