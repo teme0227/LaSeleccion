@@ -32,6 +32,10 @@ class HomeController extends BaseController {
 		return View::make('dashboard.index');
 	}
 
+	public function showProductos(){
+		return View::make('productos.index');
+	}
+
 	public function showFormEmpleados(){
 
 		$puestos = Puestos::all();

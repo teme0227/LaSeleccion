@@ -18,7 +18,7 @@
   	<script src="{{ URL::asset('js/utils.js') }}"></script>
   	<script src="{{ URL::asset('js/sesion.js') }}"></script>
   	<script src="{{ URL::asset('js/main.js') }}"></script>
-
+    @yield('jsbefore')
 </head>
 
 
@@ -44,7 +44,7 @@
         <li><label>Adminsitración</label></li>
         <li><a href="userAdmin">Usuarios</a></li>
         <li><a href="#">Negocios</a></li>
-        <li><a href="#">Productos</a></li>
+        <li><a href="productos">Productos</a></li>
       </ul>
        <ul class="off-canvas-list">
         <li><label>Punto de Venta</label></li>
