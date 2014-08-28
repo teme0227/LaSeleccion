@@ -1,26 +1,49 @@
 <?php
+	use Illuminate\Auth\UserInterface;
+	use Illuminate\Auth\Reminders\RemindableInterface;
+	class User extends Eloquent implements UserInterface, RemindableInterface {
 
-use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+		protected $table = 'users';
+		public $primaryKey = 'id';
+		
+		protected $hidden = array('password');
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+		protected $fillable = array('user', 'password', 'email');
 
-	use UserTrait, RemindableTrait;
+		public function role()
+	    {
+	        return $this->belongsTo('Role');
+	    }
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'users';
+		public function getAuthIdentifier()
+		{
+			return $this->getKey();
+		}
 
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+		public function getAuthPassword()
+		{
+			return $this->password;
+		}
 
-}
+		public function getRememberToken()
+		{	
+			return $this->remember_token;
+		}
+
+		public function setRememberToken($value)
+		{
+			$this->remember_token = $value;
+		}
+
+		public function getRememberTokenName()
+		{
+			return 'remember_token';
+		}
+
+		public function getReminderEmail()
+		{
+			return $this->email;
+		}
+
+	}
+?>

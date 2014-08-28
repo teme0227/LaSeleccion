@@ -31,11 +31,11 @@ Route::post("getData/{action}", function($action)
 	switch ($action) 
 	{
 		case 'list':
-			$rows = DB::table('productos')->count();
+			$rows = DB::table('products')->count();
 			if(Input::get("jtSorting"))
 			{
 				$search = explode(" ", Input::get("jtSorting"));
-				$data = DB::table("productos")
+				$data = DB::table("products")
 				->skip(Input::get("jtStartIndex"))
 				->take(Input::get("jtPageSize"))
 				->orderBy($search[0], $search[1])
@@ -43,7 +43,7 @@ Route::post("getData/{action}", function($action)
 			}
 			else
 			{
-				$data = DB::table("productos")
+				$data = DB::table("products")
 				->skip(Input::get("jtStartIndex"))
 				->take(Input::get("jtPageSize"))
 				->get();
@@ -58,29 +58,23 @@ Route::post("getData/{action}", function($action)
 			break;
 		case 'create':
 			$peopleData = array(
-				"Descripcion"			=>		Input::get("Descripcion"),
-				"Marca"			=>		Input::get("Marca"),
-				"Cantidad" => Input::get("Cantidad"),
-				"Precio" => Input::get("Precio"),
-				"Proveedor" => Input::get("Proveedor")
+				"name"			=>		Input::get("Nombre"),
+				"price"			=>		Input::get("Precio"),
+				"active" => Input::get("Activo")
 			);
-			$people = new Productos($peopleData);
+			$people = new Products($peopleData);
 			if($people->save())
 			{
-				$person = Productos::find($people->idProducto);
+				$person = Products::find($people->id);
 				$toView = array(
-					"0"				=>		$people->idProducto,
-					"idProducto"	=>		$people->idProducto,
-					"1"				=>		$person->Descripcion,
-					"Descripcion"	=>		$person->Descripcion,
-					"2"				=>		$person->Marca,
-					"Marca"			=>		$person->Marca,
-					"3"				=>		$person->Cantidad,
-					"Cantidad"		=>		$person->Cantidad,
-					"4"				=>		$person->Precio,
-					"Precio"		=>		$person->Precio,
-					"5"				=>		$person->Proveedor,
-					"Proveedor"		=>		$person->Proveedor
+					"0"				=>		$people->id,
+					"id"	=>		$people->id,
+					"1"				=>		$person->name,
+					"Nombre"	=>		$person->name,
+					"2"				=>		$person->price,
+					"Precio"			=>		$person->price,
+					"3"				=>		$person->active,
+					"Activo"		=>		$person->active
 				);
 
 				return Response::json(array(
@@ -91,12 +85,10 @@ Route::post("getData/{action}", function($action)
 			}
 			break;
 		case 'update':
-			$person = Productos::find(Input::get("idProducto"));
-			$person->Descripcion = Input::get("Descripcion");
-			$person->Marca = Input::get("Marca");
-			$person->Cantidad = Input::get("Cantidad");
-			$person->Precio = Input::get("Precio");
-			$person->Proveedor = Input::get("Proveedor");
+			$person = Products::find(Input::get("id"));
+			$person->name = Input::get("Nombre");
+			$person->price = Input::get("Precio");
+			$person->active = Input::get("Activo");
 			if($person->save())
 			{
 				return Response::json(array(
@@ -106,7 +98,7 @@ Route::post("getData/{action}", function($action)
 			}
 			break;
 		case 'delete':
-			$person = Productos::find(Input::get("idProducto"));
+			$person = Products::find(Input::get("id"));
 			if($person->delete())
 			{
 				return Response::json(array(

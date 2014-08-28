@@ -25,32 +25,23 @@
 					deleteAction: 'getData/delete'
 				},
 				fields: {
-					idProducto: {
+					id: {
 						key: true,
 						create: false,
 						edit: false,
 						list: false
 					},
-					Descripcion: {
-						title: 'Descripcion',
-						width: '20%'
-					},
-					Marca: {
-						title: 'marca',
-						width: '20%'
-					},
-					Cantidad: {
-						title: 'Cantidad',
-						width: '20%'
+					Nombre: {
+						title: 'Nombre',
+						width: '30%'
 					},
 					Precio: {
 						title: 'Precio',
-						width: '20%'
+						width: '30%'
 					},
-					Proveedor: {
-						title: 'Proveedor',
-						width: '20%'
-
+					Activo: {
+						title: 'Activo',
+						width: '30%'
 					}
 				}
 			});

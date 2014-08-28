@@ -9,7 +9,7 @@
 			$pass = Input::get('pass');
 
 			$data = [ 
-						'usuario' => $user,
+						'user' => $user,
 						'password'=> $pass
 					];
 
@@ -27,11 +27,13 @@
 
 		public function guardaUsuarios(){
 
-			$usuarios = new Usuarios;
+			$newUser = new User;
 
-			$usuarios -> usuario = Input::get('user');
-			$usuarios -> password = Hash::make(Input::get('passw'));
-			$usuarios -> save();
+			$newUser -> user = Input::get('user');
+			$newUser -> password = Hash::make(Input::get('passw'));
+			$newUser -> active = 1;
+			$newUser -> role_id = 2;
+			$newUser -> save();
 		}
 
 		public function logout(){
