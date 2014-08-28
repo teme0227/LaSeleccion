@@ -1,6 +1,7 @@
 /app/storage/*
 /bootstrap/compiled.php
-/vendor/*
+/vendor/laravel/framework/**
+/vendor/**
 composer.phar
 composer.lock
 .env.*.php
